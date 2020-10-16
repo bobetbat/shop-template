@@ -1,24 +1,37 @@
-import React from 'react';
-import './App.scss';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+import routes from '../routes'
+import NavRoutes from '../components/NavRoutes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn more
-        </a>
-      </header>
-    </div>
-  );
+// import LoginHeader from './Components/LoginHeader'
+// import NotFound from './views/NotFound'
+
+interface MatchParams {
 }
 
-export default App;
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      {/* <LoginHeader /> */}
+      <NavRoutes />
+      <Switch>
+        {routes.map(({ path, exact, component: Component, ...rest }) => (
+          <Route
+            key={path}
+            path={path}
+            exact={exact}
+            render={(props: MatchParams) => <Component {...props} {...rest} />}
+          />
+        ))}
+        {/* <Route component={NotFound} /> */}
+      </Switch>
+    </Router>
+  )
+}
+
+export default App
