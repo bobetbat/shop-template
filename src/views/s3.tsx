@@ -5,9 +5,6 @@ function S3() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          shop
-        </p>
         <a
           className="App-link"
           href="https://reactjs.org"

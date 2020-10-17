@@ -1,0 +1,72 @@
+$mainColor: #61dafb;
+$mainBackgroundColor: #282c34;
+
+.navMenu {
+  min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $mainBackgroundColor;
+  .navRoutes {
+    min-height: 8vh;
+    min-width: 26vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .navButton {
+      font-size: 1.4rem;
+      min-width: 7rem;
+    }
+  }
+  .burger {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    > div {
+      height: 3px;
+      width: 27px;
+      margin: 5px;
+      background: $mainColor;
+    }
+  }
+  .navActive {
+    transform: translateX(0%);
+  }
+  .burgerToggled {
+    :nth-child(1) {
+      transform: rotate(-45deg) translate(-5px,6px)
+    }
+    :nth-child(2) {
+      opacity: 0;
+    }
+    :nth-child(3) {
+      transform: rotate(45deg) translate(-5px,-6px)
+    }
+  }
+}
+
+
+@media screen and (max-width:768px) {
+  .navRoutes {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    width: 18rem;
+    top: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around !important;
+    align-items: center;
+    background-color: $mainBackgroundColor;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+  .burger {
+    display: block !important;
+  }
+}
+
+@keyframes mobilNavMenu {
+  
+}  
